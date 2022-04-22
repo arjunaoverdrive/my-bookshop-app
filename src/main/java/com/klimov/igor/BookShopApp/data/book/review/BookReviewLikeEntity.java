@@ -17,7 +17,7 @@ public class BookReviewLikeEntity {
     @Column(columnDefinition = "INT NOT NULL")
     private int userId;
 
-    @Column(columnDefinition = "TIMESTAMP NOT NULL")
+    @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE NOT NULL")
     private LocalDateTime time;
 
     @Column(columnDefinition = "SMALLINT NOT NULL")

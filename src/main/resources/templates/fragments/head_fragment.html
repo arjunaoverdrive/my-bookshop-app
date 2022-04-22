@@ -26,6 +26,7 @@
 	    let localeData = $(this).val();
 	        if(localeData == 'en'){
 	        	setLang('en');
+                $('#En').prop('checked', 'checked');
 	        } else {
 	        	setLang('ru');
 	        }
@@ -33,7 +34,7 @@
 
         $(function(){
             if(localStorage.getItem('lang') == 'ru'){
-            	$('#Ru').prop('checked', 'checked')
+            	$('#Ru').prop('checked', 'checked');
             } else {
          		if (localStorage.getItem('lang') == undefined){
             	    setLang('en');

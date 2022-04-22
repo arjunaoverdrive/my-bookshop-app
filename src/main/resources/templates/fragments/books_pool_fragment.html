@@ -10,15 +10,16 @@
             <div class="Card-description" th:each="author : ${book.authorsList}" th:text="${author.name}">Кондратенко Александр Петрович
             </div>
             <div class="Card-cost">
-                <span class="Card-priceOld" th:with="priceOld=${book.price} * #{exchange.rate}" th:text="#{currency.sign} + ' ' + ${#numbers.formatDecimal(priceOld,1,2)}">₽300.00</span>
-                <span class="Card-price" th:with="price=${book.price} * #{exchange.rate} * ${book.discount}/100" th:text="#{currency.sign} + ' ' + ${#numbers.formatDecimal(price,1,2)}">₽190.00</span>
+                <span class="Card-priceOld" th:with="priceOld=${book.price} / #{exchange.rate}" th:text="#{currency.sign} + ' ' + ${#numbers.formatDecimal(priceOld,0,0)}">₽300.00</span>
+                <span class="Card-price" th:with="price=${book.price} / #{exchange.rate} * ${book.discount}/100" th:text="#{currency.sign} + ' ' + ${#numbers.formatDecimal(price,0,0)}">₽190.00</span>
             </div>
         </div>
     </div>
 
     <div class="Cards-footer Cards-footer_center"><a class="btn btn_primary" href="#"
-                                                     th:attr="data-refreshshow = ${category}" data-refreshshow="recent"
-                                                     data-refreshoffset="20" data-refreshlimit="20" th:text="#{showmore.button}">Показать еще</a>
+                                                     th:attr="data-refreshshow = ${category}"
+                                                     data-refreshshow="recent" data-refreshoffset="20" data-refreshlimit="20"
+                                                     th:text="#{showmore.button}">Показать еще</a>
     </div>
 </div>
 </html>
