@@ -1,33 +1,25 @@
 package com.klimov.igor.BookShopApp.services;
 
-import com.klimov.igor.BookShopApp.data.Author;
-import com.klimov.igor.BookShopApp.data.Book;
+import com.klimov.igor.BookShopApp.DAO.AuthorRepository;
+import com.klimov.igor.BookShopApp.data.author.AuthorEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.sql.ResultSet;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class AuthorService {
-    private final JdbcTemplate jdbcTemplate;
+    private final AuthorRepository authorRepository;
 
     @Autowired
-    public AuthorService(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public AuthorService(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
     }
 
-    public Map<String, List<Author>> getAuthorsMap() {
-        List<Author>authors = jdbcTemplate.query("SELECT * FROM Authors", (ResultSet rs, int rowNums) -> {
-            Author author = new Author();
-            author.setId(rs.getInt("id"));
-            author.setFirstName(rs.getString("first_name"));
-            author.setLastName(rs.getString("last_name"));
-            return author;
-        });
+    public Map<String, List<AuthorEntity>> getAuthorsMap() {
+        List<AuthorEntity>authors = authorRepository.findAll();
         return authors.stream()
-                .collect(Collectors.groupingBy((Author a) -> {return a.getLastName().substring(0, 1);}));
+                .collect(Collectors.groupingBy((AuthorEntity a) -> {return a.getName().substring(0, 1);}));
     }
 }

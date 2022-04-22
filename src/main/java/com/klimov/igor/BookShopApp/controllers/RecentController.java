@@ -1,6 +1,6 @@
 package com.klimov.igor.BookShopApp.controllers;
 
-import com.klimov.igor.BookShopApp.data.Book;
+import com.klimov.igor.BookShopApp.data.book.BookEntity;
 import com.klimov.igor.BookShopApp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ public class RecentController {
     private final BookService bookService;
 
     @ModelAttribute("recent")
-    public List<Book>getRecent(){
+    public List<BookEntity>getRecent(){
         return bookService.getRecentList();
     }
 

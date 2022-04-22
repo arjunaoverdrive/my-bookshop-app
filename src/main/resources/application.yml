@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: book-shop-app
+  messages:
+    basename: lang.messages
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookstore
+    password: testtest4321
+    username: testuser
+    driver-class-name: org.postgresql.Driver
+    data:
+      - classpath:data.sql
+#    initialization-mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: 'update'
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+server:
+  port: 8099

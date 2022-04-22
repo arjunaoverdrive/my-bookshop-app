@@ -1,16 +1,12 @@
 package com.klimov.igor.BookShopApp.controllers;
 
-import com.klimov.igor.BookShopApp.data.Book;
+import com.klimov.igor.BookShopApp.data.book.BookEntity;
 import com.klimov.igor.BookShopApp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -24,15 +20,15 @@ public class MainPageController {
     }
 
     @ModelAttribute("recommendedBooks")
-    public List<Book> recommendedBooks(){
+    public List<BookEntity> recommendedBooks(){
         return bookService.getBooksData();
     }
 
     @ModelAttribute("recentBooks")
-    public List<Book> recentBooks() {return bookService.getRecentList(); }
+    public List<BookEntity> recentBooks() {return bookService.getRecentList(); }
 
     @ModelAttribute("popularBooks")
-    public List<Book> getPopular(){
+    public List<BookEntity> getPopular(){
         return bookService.getBooksData();
     }
 

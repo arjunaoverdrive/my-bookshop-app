@@ -1,15 +1,12 @@
 package com.klimov.igor.BookShopApp.controllers;
 
-import com.klimov.igor.BookShopApp.data.Author;
+import com.klimov.igor.BookShopApp.data.author.AuthorEntity;
 import com.klimov.igor.BookShopApp.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -24,8 +21,8 @@ public class AuthorsController {
     }
 
     @ModelAttribute("authorsMap")
-    public Map<String, List<Author>> getAuthors(){
-        Map<String, List<Author>> authorsMap = authorService.getAuthorsMap();
+    public Map<String, List<AuthorEntity>> getAuthors(){
+        Map<String, List<AuthorEntity>> authorsMap = authorService.getAuthorsMap();
         return authorsMap;
     }
 

@@ -1,6 +1,6 @@
 package com.klimov.igor.BookShopApp.controllers;
 
-import com.klimov.igor.BookShopApp.data.Book;
+import com.klimov.igor.BookShopApp.data.book.BookEntity;
 import com.klimov.igor.BookShopApp.services.BookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class PopularController {
     }
 
     @ModelAttribute("popular")
-    public List<Book> getPopular(){
+    public List<BookEntity> getPopular(){
         return bookService.getBooksData();
     }
 
