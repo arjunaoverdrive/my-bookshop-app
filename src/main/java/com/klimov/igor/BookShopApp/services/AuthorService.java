@@ -1,7 +1,7 @@
 package com.klimov.igor.BookShopApp.services;
 
 import com.klimov.igor.BookShopApp.DAO.AuthorRepository;
-import com.klimov.igor.BookShopApp.data.author.AuthorEntity;
+import com.klimov.igor.BookShopApp.model.author.AuthorEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

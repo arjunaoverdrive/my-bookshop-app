@@ -1,6 +1,6 @@
 package com.klimov.igor.BookShopApp.controllers;
 
-import com.klimov.igor.BookShopApp.data.book.BookEntity;
+import com.klimov.igor.BookShopApp.model.book.BookEntity;
 import com.klimov.igor.BookShopApp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

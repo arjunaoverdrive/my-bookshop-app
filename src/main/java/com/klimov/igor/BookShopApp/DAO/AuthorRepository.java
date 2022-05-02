@@ -1,6 +1,6 @@
 package com.klimov.igor.BookShopApp.DAO;
 
-import com.klimov.igor.BookShopApp.data.author.AuthorEntity;
+import com.klimov.igor.BookShopApp.model.author.AuthorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
